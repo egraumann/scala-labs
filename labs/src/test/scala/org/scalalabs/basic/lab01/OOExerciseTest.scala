@@ -44,9 +44,9 @@ class OOExerciseTest extends Specification {
       res.cents ==== 50
     }
 
-  } /*
+  }
   "Exercise 2: an Euro" should {
-    "be a cubclass of Currency" in {
+    "be a subclass of Currency" in {
       //skipped("Uncomment and fix me")
       val e: Currency = new Euro(2, 5)
       e.symbol ==== "EUR"
@@ -58,7 +58,7 @@ class OOExerciseTest extends Specification {
       val e2 = new Euro(2)
       e2.toString ==== "EUR: 2,--"
     }
-  }
+  } /*
   "Exercise 3: Euro with Order trait" should {
     "be correctly orderable" in {
       //skipped("Uncomment and fix me")

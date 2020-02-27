@@ -40,7 +40,7 @@ import scala.language.implicitConversions
  *   of type [[org.scalalabs.basic.lab01.CurrencyConverter]]
  * - Use the implicit CurrencyConverter to do the conversion.
  */
-class Euro(val euro: Int, val cents: Int = 0) {
+class Euro(val euro: Int, val cents: Int = 0) extends Currency {
   def inCents = euro * 100 + cents;
   def +(parEuro: Euro): Euro = {
     Euro.fromCents(this.inCents + parEuro.inCents);
@@ -48,6 +48,11 @@ class Euro(val euro: Int, val cents: Int = 0) {
   def *(factor: Int): Euro = {
     Euro.fromCents(this.inCents * factor);
   };
+
+  override def toString: String = {
+    var digitsCentsString: String = if (cents > 0 && cents < 10) '0' + cents.toString else if (cents == 0) "--" else cents.toString;
+    symbol + ':' + ' ' + euro + ',' + digitsCentsString
+  }
 }
 
 object Euro {
@@ -55,4 +60,7 @@ object Euro {
     var mod = cents % 100;
     new Euro((cents - mod) / 100, mod);
   }
+}
+
+abstract class Currency(val symbol: String = "EUR") {
 }
