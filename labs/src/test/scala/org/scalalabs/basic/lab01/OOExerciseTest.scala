@@ -58,7 +58,7 @@ class OOExerciseTest extends Specification {
       val e2 = new Euro(2)
       e2.toString ==== "EUR: 2,--"
     }
-  } /*
+  }
   "Exercise 3: Euro with Order trait" should {
     "be correctly orderable" in {
       //skipped("Uncomment and fix me")
@@ -74,28 +74,28 @@ class OOExerciseTest extends Specification {
   "Exercise 4: Implicit class" should {
     //implicit val defaultConverter = DefaultCurrencyConverter
     "add *(euro:Euro) (multiply) method to Int" in {
-      //skipped("Uncomment and fix me")
-      import Euro._
+      skipped("Uncomment and fix me")
+      /*import Euro._
       val res = 3 * new Euro(2, 50)
       res.euro ==== 7
-      res.cents ==== 50
+      res.cents ==== 50*/
     }
     "implicitly convert from euro to dollar" in {
-      //skipped("Uncomment and fix me")
-      val e: Euro = new Dollar(1, 5)
+      skipped("Uncomment and fix me")
+      /*val e: Euro = new Dollar(1, 5)
       e.euro ==== 1
-      e.cents ==== 42
+      e.cents ==== 42*/
     }
   }
   "Exercise 5: Implicit parameter" should {
     "make currency converter plugable" in {
-      //skipped("Uncomment and fix me")
-      implicit object anotherConverter extends DefaultCurrencyConverter {
+      skipped("Uncomment and fix me")
+      /*implicit object anotherConverter extends DefaultCurrencyConverter {
         override val conversionRate = 1.2
       }
       val e: Euro = new Dollar(1, 5)
       e.euro ==== 1
-      e.cents ==== 26
+      e.cents ==== 26*/
     }
-  }*/
+  }
 }
