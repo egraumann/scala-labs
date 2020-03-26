@@ -62,6 +62,16 @@ object Euro {
     var mod = cents % 100;
     new Euro((cents - mod) / 100, mod);
   }
+  implicit class EuroInt(val factor: Int) extends AnyVal {
+    def *(euro: Euro) = euro * factor // why?
+  }
+
+  // TODO: change this in solution!
+  implicit def fromDollar(dollar: Dollar)(implicit converter: CurrencyConverter = DefaultCurrencyConverter): Euro = Euro.fromCents(converter.toEuroCents(dollar.inCents))
+}
+
+class Dollar(val dollar: Int, val cents: Int) extends Currency(symbol = "USD") {
+  def inCents: Int = dollar * 100 + cents;
 }
 
 abstract class Currency(val symbol: String = "EUR") {
